@@ -32,6 +32,16 @@
 
             table += "</table>";
             document.documentElement.innerHTML += table;
+
+            // Removing everything except button
+            document.getElementById("t1").style.display = "none";
+            document.getElementById("t2").style.display = "none";
+            document.getElementById("b1").style.display = "none";
+            document.getElementsByTagName("font")[0].style.display = "none"; 
+            document.getElementsByTagName("br")[0].style.display = "none"; 
+            document.getElementsByTagName("br")[1].style.display = "none"; 
+            document.getElementById("t1").previousElementSibling.textContent.display = "none";
+            document.getElementById("t2").previousElementSibling.textContent.display = "none";
         }
         function addColumn() {
             var table = document.querySelector("table");
