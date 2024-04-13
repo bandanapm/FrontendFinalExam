@@ -17,23 +17,43 @@
             var table = "<table border='1'>";
             
             // Check if inputs are valid integers
-            if (isNaN(rows) || isNaN(cols) || rows <= 0 || cols <= 0) {
+            if (isNaN(rows) || isNaN(column) || rows <= 0 || column <= 0) {
                 alert("Please enter valid values for rows and columns.");
                 return;
             }
 
             for (var i = 0; i < rows; i++) {
                 table += "<tr>";
-                for (var j = 0; j < cols; j++) {
+                for (var j = 0; j < column; j++) {
                     table += "<td>Row " + (i + 1) + ", Col " + (j + 1) + "</td>";
                 }
                 table += "</tr>";
             }
 
             table += "</table>";
-            document.body.innerHTML += table;
+            document.getElementById("table-container").innerHTML = table;
         }
-	
+        function addColumn() {
+            var table = document.querySelector("table");
+            var rows = table.querySelectorAll("tr");
+
+            rows.forEach(function(row) {
+                var cell = document.createElement("td");
+                cell.textContent = "New Column";
+                row.appendChild(cell);
+            });
+        }
+
+        function addRow() {
+            var table = document.querySelector("table");
+            var newRow = table.insertRow(-1); 
+
+            // Insert cells into the new row
+            for (var i = 0; i < table.rows[0].cells.length; i++) {
+                var cell = newRow.insertCell(i);
+                cell.textContent = "New Row";
+            }
+        }
 	</script>
 	
 </html>
