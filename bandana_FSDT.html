@@ -16,6 +16,22 @@
             var column = parseInt(document.getElementById("t2").value);
             var table = "<table border='1'>";
             
+            // Check if inputs are valid integers
+            if (isNaN(rows) || isNaN(cols) || rows <= 0 || cols <= 0) {
+                alert("Please enter valid values for rows and columns.");
+                return;
+            }
+
+            for (var i = 0; i < rows; i++) {
+                table += "<tr>";
+                for (var j = 0; j < cols; j++) {
+                    table += "<td>Row " + (i + 1) + ", Col " + (j + 1) + "</td>";
+                }
+                table += "</tr>";
+            }
+
+            table += "</table>";
+            document.body.innerHTML += table;
         }
 	
 	</script>
